@@ -1,0 +1,17 @@
+#First time password, if ypu provide rsa keys already imported on remote hosts, you do not need
+#to provide password.
+PASS=my-remote-host-password
+
+#Provide IP or DNS known hostname 
+#!Important docker container does not an have access to your local /etc/hosts configuration.
+HOST=jarek@your-remote-server-address-ip-or-domain
+
+#Docker ports to be exposed,format "127.0.0.1:LOCAL_PORT1:DOCEKR_PORT1;0.0.0.0:LOCAL_PORT2:DOCKER_PORT2;LOCAL_PORT3:DOCKER_PORT3:...."
+LOCAL_PORTS="5454:5432;8085:80"
+
+#Remote ports number to be tunneled, format "PORT1;PORT2;PORT3:....."
+REMOTE_PORTS="5432;80"
+
+IMAGE=jarek/sshimage
+CONTAINER=sshtunel
+
