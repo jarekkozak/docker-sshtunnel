@@ -22,7 +22,6 @@ RUN apt-get update && apt-get install -y \
 	vim \
 	sshpass \
 	autossh \
-	supervisor \
   && rm -rf /var/lib/apt/lists/*
 
 #copy id does not work without this directory
@@ -30,9 +29,6 @@ RUN mkdir /root/.ssh
 
 RUN mkdir /keys
 ADD ./keys/* /keys/
-
-EXPOSE 22
-CMD ["supervisord", "-n"]
 
 ADD genkeys.sh /genkeys.sh
 ADD start-ssh.sh /start-ssh.sh
