@@ -41,7 +41,7 @@ For quick start two files are provided `config` and `run-tunnel.sh` just edit `c
 
 #Important 
 
-What is happeninig behind the scene. During container instantiation keys pair will be generated in `/keys` directory (inside container) and  `id_rtsa.pub` key is copiend to `/home/user/.ssh/know_host` on remote machine.
+What is happeninig behind the scene. During container instantiation keys pair will be generated in `/keys` directory (inside container) and  `id_rtsa.pub` key is copiend to `/home/user/.ssh/known_host` on remote machine.
 
 Each time you instatiane a new container a new keys are generated and copied to the remote machine. It could make mess in `known_host` file. 
 To avoid such situation you can generate your own keys (please see ssh documentation how to do it) and put them in any dir and run command
