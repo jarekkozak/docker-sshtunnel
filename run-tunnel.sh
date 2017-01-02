@@ -10,9 +10,19 @@ do
 PARAM="$PARAM -p $port"
 done
 
+#Expose just mapped ports
+ports=$(echo $REMOTE_PORTS | tr ";" "\n")
+EXPOSE=""
+for port in $ports
+do
+EXPOSE="$EXPOSE --expose=$port"
+done
+
+
+
 echo "Locally mapped ports $PARAM"
 
-docker run -d $PARAM \
+docker run -d $EXPOSE $PARAM \
 	-e PASS=$PASS \
 	-e HOST=$HOST \
 	-e REMOTE_PORTS=$REMOTE_PORTS \

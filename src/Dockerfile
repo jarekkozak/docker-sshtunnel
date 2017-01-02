@@ -33,7 +33,9 @@ ADD ./keys/* /keys/
 ADD genkeys.sh /genkeys.sh
 ADD start-ssh.sh /start-ssh.sh
 
-EXPOSE 1-65535
+#If you know you can define ports to be exposed here
+#EXPOSE 1000-60000 - this is bad example of por range expose 
+
 VOLUME ["/keys"]
 
 RUN chmod +x /genkeys.sh
